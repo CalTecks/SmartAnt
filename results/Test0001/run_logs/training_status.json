@@ -1,0 +1,29 @@
+{
+    "AntAgent": {
+        "checkpoints": [
+            {
+                "steps": 16638,
+                "file_path": "results\\Test0001\\AntAgent\\AntAgent-16638.onnx",
+                "reward": null,
+                "creation_time": 1714689401.8501673,
+                "auxillary_file_paths": [
+                    "results\\Test0001\\AntAgent\\AntAgent-16638.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 16638,
+            "file_path": "results\\Test0001\\AntAgent.onnx",
+            "reward": null,
+            "creation_time": 1714689401.8501673,
+            "auxillary_file_paths": [
+                "results\\Test0001\\AntAgent\\AntAgent-16638.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

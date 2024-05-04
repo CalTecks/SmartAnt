@@ -1,0 +1,4 @@
+repository "Beestig_TestProject@Beestig@cloud"
+  path "/"
+    br "/main"
+    co "/main"
