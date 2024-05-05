@@ -3,14 +3,14 @@ using UnityEngine;
 public class AnimalController : MonoBehaviour
 {
     private float scaleFactor;
-    public float speedForward = 1f;
-    private float startSpeedForward;
     private bool isGrabbing = false;
-    public float speedBackward = 0.5f;
-    private float startSpeedBackward;
-    public float speedRotate = 2f;
-    private float startSpeedRotate;
-    public float loadMultiplier = 1.5f; // hoe zwaar het gewicht van een object vasthebben snelheid beïnvloedt
+    private float speedBackward;
+    private float speedForward;
+    public float startSpeedForward;
+    public float startSpeedBackward;
+    private float speedRotate;
+    public float startSpeedRotate;
+    public float loadMultiplier; // hoe zwaar het gewicht van een object vasthebben snelheid beïnvloedt
 
     private bool ctrlUpArrow, ctrlDownArrow, ctrlLeftArrow, ctrlRightArrow, ctrlSpace;
 
@@ -21,28 +21,19 @@ public class AnimalController : MonoBehaviour
     {
         scaleFactor = transform.localScale.x;
         RescaleVars(); // juiste schaal toepassen op public vars
-        startSpeedForward = speedForward;
-        startSpeedBackward = speedBackward;
-        startSpeedRotate = speedRotate;
         animator = GetComponent<Animator>();
         grabber = GetComponent<Grabber>();
         animalAgent = GetComponent<AnimalAgent>();
     }
     void RescaleVars() {
         // als we het object scalen gaat het nog steeds werken want deze vars worden mee geschaald
-        speedForward *= scaleFactor;
-        speedBackward *= scaleFactor;
-    }
-
-    public void StartSpeedReset() {
-        speedForward = startSpeedForward;
-        speedBackward = startSpeedBackward;
-        speedRotate = startSpeedRotate;
+        startSpeedForward *= scaleFactor;
+        startSpeedBackward *= scaleFactor;
+        Debug.Log("*** rescaled vars***");
     }
 
     public void SetisGrabbing(bool value) {
         isGrabbing = value;
-        Debug.Log("isgrabbing true");
     }
 
     public void SetctrlUpArrow(bool value) {
@@ -68,16 +59,23 @@ public class AnimalController : MonoBehaviour
             animator.SetTrigger("GrabObject");
             animator.SetBool("isHoldingObject", true);
             grabber.SetgrabEnabled(true);
-            Debug.Log("is picking up object");
-            speedForward *= 1/loadMultiplier;
-            speedBackward *= 1/loadMultiplier;
-            speedRotate *= 1/loadMultiplier;
-            animator.SetFloat("runMultiplier", 1 / loadMultiplier);
+            animator.SetFloat("runMultiplier", loadMultiplier);
         }
     }
 
     void Update()
     {
+        if(animator.GetBool("isHoldingObject")) {
+            speedForward = startSpeedForward * loadMultiplier;
+            speedBackward = startSpeedBackward * loadMultiplier;
+            speedRotate = startSpeedRotate * loadMultiplier;
+        }
+        else {
+            speedForward = startSpeedForward;
+            speedBackward = startSpeedBackward;
+            speedRotate = startSpeedRotate;
+        }
+
         Vector3 moveDir;
         if (ctrlUpArrow) { // Vooruit bewegen
             moveDir = transform.forward * speedForward * Time.deltaTime;
@@ -140,7 +138,6 @@ public class AnimalController : MonoBehaviour
             animator.SetTrigger("ReleaseObject");
             animator.SetBool("isHoldingObject", false);
             grabber.SetdropEnabled(true);
-            Debug.Log("is releasing object");
             speedForward *= loadMultiplier;
             speedBackward *= loadMultiplier;
             speedRotate *= loadMultiplier;

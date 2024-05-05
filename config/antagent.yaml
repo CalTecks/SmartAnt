@@ -19,11 +19,7 @@ behaviors:
     reward_signals:
       extrinsic:
         gamma: 0.99
-        strength: 0.1
-      gail:
-        gamma: 0.99
-        strength: 0.95
-        demo_path: Assets\Demonstrations\AntRecording.demo
-    max_steps: 150000
+        strength: 1.0
+    max_steps: 250000
     time_horizon: 64
     summary_freq: 2000

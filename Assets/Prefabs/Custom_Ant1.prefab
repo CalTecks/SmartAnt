@@ -845,6 +845,7 @@ GameObject:
   - component: {fileID: 2516280221408971632}
   - component: {fileID: 8641799410151429960}
   - component: {fileID: 7448652982735766423}
+  - component: {fileID: 4261193551462750941}
   m_Layer: 0
   m_Name: Custom_Ant1
   m_TagString: AnimalAgent
@@ -862,7 +863,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.18, y: 0.18, z: 0.18}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3097723747989343025}
@@ -888,8 +889,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.0870879, y: 0.48050737, z: 1.3713932}
-  m_Center: {x: -0.029067636, y: 0.2597463, z: -0.1856966}
+  m_Size: {x: 1.8847971, y: 0.48050737, z: 1.1720412}
+  m_Center: {x: -0.00039868883, y: 0.2597463, z: -0.0860204}
 --- !u!95 &3765706850511843976
 Animator:
   serializedVersion: 5
@@ -923,10 +924,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae4260b37acd5b4b8068f1086bc0ad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedForward: 7
-  speedBackward: 3.5
-  speedRotate: 120
-  loadMultiplier: 1.6
+  startSpeedForward: 7
+  startSpeedBackward: 3.5
+  startSpeedRotate: 125
+  loadMultiplier: 0.6
 --- !u!54 &6395311616654379178
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1021,7 +1022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 9
+    VectorObservationSize: 10
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -1050,20 +1051,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SensorName: RayPerceptionSensor
+  m_SensorName: RPS_Low
   m_DetectableTags:
   - ScoringItem
   - PickupItem
-  m_RaysPerDirection: 18
-  m_MaxRayDegrees: 160
+  - Box
+  m_RaysPerDirection: 15
+  m_MaxRayDegrees: 180
   m_SphereCastRadius: 0.3
-  m_RayLength: 13
+  m_RayLength: 20
   m_RayLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 65
   m_ObservationStacks: 1
-  rayHitColor: {r: 1, g: 0, b: 0, a: 1}
-  rayMissColor: {r: 1, g: 1, b: 1, a: 1}
+  rayHitColor: {r: 1, g: 0.41772836, b: 0, a: 1}
+  rayMissColor: {r: 0.9433962, g: 0.91412055, b: 0.5562478, a: 1}
   m_StartVerticalOffset: 0
   m_EndVerticalOffset: 0
 --- !u!114 &7448652982735766423
@@ -1073,15 +1075,44 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6052791565007671679}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2902496c0120472b90269f94a0aec7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Record: 1
+  Record: 0
   NumStepsToRecord: 0
   DemonstrationName: AntRecording
   DemonstrationDirectory: 
+--- !u!114 &4261193551462750941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6052791565007671679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: RPS_High
+  m_DetectableTags:
+  - ScoringItem
+  - PickupItem
+  - Box
+  m_RaysPerDirection: 10
+  m_MaxRayDegrees: 120
+  m_SphereCastRadius: 0.4
+  m_RayLength: 20
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967241
+  m_ObservationStacks: 1
+  rayHitColor: {r: 0, g: 0.12112109, b: 0.8584906, a: 1}
+  rayMissColor: {r: 0.68765575, g: 0.9528302, b: 0.7767537, a: 1}
+  m_StartVerticalOffset: -0.32
+  m_EndVerticalOffset: 2
 --- !u!1 &6177809960967410279
 GameObject:
   m_ObjectHideFlags: 0
