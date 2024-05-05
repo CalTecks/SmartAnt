@@ -35,7 +35,6 @@ public class AnimalAgent : Agent
             grabber.SetdropEnabled(false);
             grabber.SetgrabEnabled(true);
             grabber.NullGrabbedObject();
-            animalController.StartSpeedReset();
             notCrushedYet = true; // target aanraking terug resetten
             isCheating = false; // cheaten resetten
             rBody.angularVelocity = Vector3.zero;
@@ -115,7 +114,7 @@ public class AnimalAgent : Agent
         if (!isCheating)
         {
             AddReward(1f);
-            Debug.Log("reward target crushed added: 1f");
+            Debug.Log("reward target crushed added: 1.5f");
         }
         }
 
