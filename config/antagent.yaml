@@ -4,7 +4,7 @@ behaviors:
     hyperparameters:
       batch_size: 10
       buffer_size: 100
-      learning_rate: 5.0e-4
+      learning_rate: 3.0e-3
       beta: 5.0e-4
       epsilon: 0.2
       lambd: 0.99
@@ -19,7 +19,11 @@ behaviors:
     reward_signals:
       extrinsic:
         gamma: 0.99
-        strength: 1.0
-    max_steps: 500000
+        strength: 0.1
+      gail:
+        gamma: 0.99
+        strength: 0.95
+        demo_path: Assets\Demonstrations\AntRecording.demo
+    max_steps: 150000
     time_horizon: 64
     summary_freq: 2000
