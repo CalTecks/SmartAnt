@@ -193,6 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalAgent: {fileID: 9002522664086340355, guid: f0b61dc39d0001d4487d98d84b5a5cd9,
     type: 3}
+  hitMaterial: {fileID: 2100000, guid: bc043a902cd8a6a46925e74f327f097c, type: 2}
 --- !u!114 &1357473920906598383
 MonoBehaviour:
   m_ObjectHideFlags: 0

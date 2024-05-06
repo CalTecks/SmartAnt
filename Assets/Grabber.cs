@@ -64,7 +64,6 @@ public class Grabber : MonoBehaviour
 
     void OnCollisionStay(Collision collision) {
         if (collision.collider.CompareTag(cheaterTag)) {
-            Debug.Log("collision CHEAT");
             animalAgent.Cheated();
 
         }

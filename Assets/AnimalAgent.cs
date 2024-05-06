@@ -35,29 +35,29 @@ public class AnimalAgent : Agent
             grabber.SetdropEnabled(false);
             grabber.SetgrabEnabled(true);
             grabber.NullGrabbedObject();
-            animalController.StartSpeedReset();
             notCrushedYet = true; // target aanraking terug resetten
             isCheating = false; // cheaten resetten
             rBody.angularVelocity = Vector3.zero;
             rBody.velocity = Vector3.zero;
             transform.localPosition = startPosition;
             animator.SetBool("isHoldingObject", false); // animator reset
+            animator.SetFloat("runMultiplier", 1);
 
             // scoringTarget(s) destroyen en opnieuw spawnen
             if (spawnedScoringObject != null) Destroy(spawnedScoringObject);
-            Vector3 spawnPos =  new Vector3(Random.value * 2 - 1, -0.15f,1.85f);
+            Vector3 spawnPos =  new Vector3(Random.value * 1.5f - 0.75f, -0.15f,0.75f);
             spawnedScoringObject = Instantiate(scoringObject, spawnPos,  Quaternion.identity);
             spawnedScoringObject.transform.parent = null;
 
             // oude aardbei destroyen en spawn een nieuwe aardbei
             if (spawnedStrawberryObject != null) Destroy(spawnedStrawberryObject);
-            spawnPos = new Vector3(Random.Range(-1.4f, 1.4f), Random.Range(1f, 3f), Random.Range(-2, 0.5f));
+            spawnPos = new Vector3(Random.Range(-1f, 1f), Random.Range(1f, 3f), Random.Range(-0.5f, 0.2f));
             spawnedStrawberryObject = Instantiate(strawberryObject, spawnPos, Quaternion.identity);
             spawnedStrawberryObject.transform.parent = null;
 
             // oude pinda destroyen en spawn een nieuwe pinda
             if (spawnedPeanutObject != null) Destroy(spawnedPeanutObject);
-            spawnPos = new Vector3(Random.Range(-1.4f, 1.4f), Random.Range(1f, 3f), Random.Range(-2, 0.5f));
+            spawnPos = new Vector3(Random.Range(-1.1f, 1.1f), Random.Range(1f, 3f), Random.Range(-0.5f, 0.2f));
             spawnedPeanutObject = Instantiate(peanutObject, spawnPos, Quaternion.identity);
             spawnedPeanutObject.transform.parent = null;
         }
@@ -68,8 +68,20 @@ public class AnimalAgent : Agent
         // Target and Agent positions
         sensor.AddObservation(transform.localPosition); // positie checken
         sensor.AddObservation(transform.localRotation); // rotatie checken
-        sensor.AddObservation(grabber.dropEnabled); // checken of animal iets vast heeft
+        sensor.AddObservation(animator.GetBool("isHoldingObject")); // checken of animal iets vast heeft
         sensor.AddObservation(isCheating); // checken of er gecheat is ( cheaten = aanraking ScoringTarget(s))
+        sensor.AddObservation(notCrushedYet); // checken of er al scoring componenten geraakt zijn
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        // Controleren of het object botst met een ander object met de tag "Player"
+        if (collision.gameObject.CompareTag("Box"))
+        {
+            Debug.Log("HIT THE WALLS!");
+            SetReward(0f);
+            EndEpisode();
+        }
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
@@ -97,8 +109,8 @@ public class AnimalAgent : Agent
         public void Cheated() {
             // als het scoringTarget is aangeraakt...
             isCheating = true;
-            SetReward(-5.0f);
-            Debug.Log("reward -5.0f, cheated!");
+            SetReward(0.0f);
+            Debug.Log("cheated!");
             if(notCrushedYet) {
                 EndEpisode();
             }
@@ -114,8 +126,8 @@ public class AnimalAgent : Agent
             }
         if (!isCheating)
         {
-            AddReward(1f);
-            Debug.Log("reward target crushed added: 1f");
+            AddReward(2.5f);
+            Debug.Log("REWARD target crushed added: 2.5f");
         }
         }
 
@@ -132,8 +144,8 @@ public class AnimalAgent : Agent
 
         if (!isCheating)
         {
-            AddReward(0.2f);
-            Debug.Log("reward dropped added: 0.2f");
+            // AddReward(0.2f);
+            // Debug.Log("reward dropped added: 0.2f");
         }
         }
 
