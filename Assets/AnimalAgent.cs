@@ -20,6 +20,7 @@ public class AnimalAgent : Agent
     private GameObject spawnedStrawberryObject;
     private bool notCrushedYet = true;
     private bool isCheating = false;
+    private float elapsedTime = 0f;
     void Start () {
         rBody = GetComponent<Rigidbody>();
         startPosition = transform.localPosition;
@@ -45,19 +46,19 @@ public class AnimalAgent : Agent
 
             // scoringTarget(s) destroyen en opnieuw spawnen
             if (spawnedScoringObject != null) Destroy(spawnedScoringObject);
-            Vector3 spawnPos =  new Vector3(Random.value * 1.5f - 0.75f, -0.15f,0.75f);
+            Vector3 spawnPos =  new Vector3(Random.value * 0.3f - 0.15f, -0.03f,0.15f);
             spawnedScoringObject = Instantiate(scoringObject, spawnPos,  Quaternion.identity);
             spawnedScoringObject.transform.parent = null;
 
             // oude aardbei destroyen en spawn een nieuwe aardbei
             if (spawnedStrawberryObject != null) Destroy(spawnedStrawberryObject);
-            spawnPos = new Vector3(Random.Range(-1f, 1f), Random.Range(1f, 3f), Random.Range(-0.5f, 0.2f));
+            spawnPos = new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(0.2f, 0.6f), Random.Range(-0.1f, 0.04f));
             spawnedStrawberryObject = Instantiate(strawberryObject, spawnPos, Quaternion.identity);
             spawnedStrawberryObject.transform.parent = null;
 
             // oude pinda destroyen en spawn een nieuwe pinda
             if (spawnedPeanutObject != null) Destroy(spawnedPeanutObject);
-            spawnPos = new Vector3(Random.Range(-1.1f, 1.1f), Random.Range(1f, 3f), Random.Range(-0.5f, 0.2f));
+            spawnPos = new Vector3(Random.Range(-0.22f, 0.22f), Random.Range(0.2f, 0.6f), Random.Range(-0.1f, 0.04f));
             spawnedPeanutObject = Instantiate(peanutObject, spawnPos, Quaternion.identity);
             spawnedPeanutObject.transform.parent = null;
         }
@@ -79,7 +80,7 @@ public class AnimalAgent : Agent
         if (collision.gameObject.CompareTag("Box"))
         {
             Debug.Log("HIT THE WALLS!");
-            SetReward(0f);
+            AddReward(-5f);
             EndEpisode();
         }
     }
@@ -94,6 +95,21 @@ public class AnimalAgent : Agent
         animalController.SetctrlRightArrow(actionBuffers.DiscreteActions[1] == 2); // rechts draien
         animalController.SetctrlSpace(actionBuffers.DiscreteActions[2] == 1); // werpen
         if (transform.localPosition.y < -1) EndEpisode();
+        // // als agent beweegt kleine beloning
+        // if (actionBuffers.DiscreteActions[0] == 1 || actionBuffers.DiscreteActions[0] == 2 ||
+        // actionBuffers.DiscreteActions[1] == 1 || actionBuffers.DiscreteActions[1] == 2)
+        // {
+        //     AddReward(0.00001f); // You can adjust the reward value
+        // }
+        // // als agent stilstaat, kleine straf
+        // if (actionBuffers.DiscreteActions[0] == 0 || actionBuffers.DiscreteActions[1] == 0)
+        // {
+        //     AddReward(-0.00001f); // You can adjust the reward value
+        // }
+
+        // om de 2 seconde een penalty
+        elapsedTime += Time.deltaTime;
+        if (elapsedTime % 2 == 0) AddReward(-0.5f);
     }
 
 
@@ -109,7 +125,7 @@ public class AnimalAgent : Agent
         public void Cheated() {
             // als het scoringTarget is aangeraakt...
             isCheating = true;
-            SetReward(0.0f);
+            AddReward(-10.0f);
             Debug.Log("cheated!");
             if(notCrushedYet) {
                 EndEpisode();
@@ -126,8 +142,8 @@ public class AnimalAgent : Agent
             }
         if (!isCheating)
         {
-            AddReward(2.5f);
-            Debug.Log("REWARD target crushed added: 2.5f");
+            AddReward(5f);
+            Debug.Log("REWARD target crushed added: 5f");
         }
         }
 
@@ -135,8 +151,8 @@ public class AnimalAgent : Agent
 
         if (!isCheating)
         {
-            AddReward(0.2f);
-            Debug.Log("reward grabbed added: 0.2f");
+            AddReward(1.5f);
+            Debug.Log("reward grabbed added: 0.5f");
         }
         }
 
