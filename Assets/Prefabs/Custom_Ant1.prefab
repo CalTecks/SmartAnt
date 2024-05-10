@@ -863,7 +863,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.18, y: 0.18, z: 0.18}
+  m_LocalScale: {x: 0.036, y: 0.036, z: 0.036}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3097723747989343025}
@@ -971,7 +971,7 @@ MonoBehaviour:
   dropEnabled: 0
   distanceFromGrabber: 1.2
   distanceAboveGrabber: 1.6
-  throwingPowerForward: 40
+  throwingPowerForward: 30
   throwingPowerUpward: 20
 --- !u!114 &9002522664086340355
 MonoBehaviour:
@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_RaysPerDirection: 15
   m_MaxRayDegrees: 180
   m_SphereCastRadius: 0.3
-  m_RayLength: 20
+  m_RayLength: 8
   m_RayLayerMask:
     serializedVersion: 2
     m_Bits: 65
@@ -1104,7 +1104,7 @@ MonoBehaviour:
   m_RaysPerDirection: 10
   m_MaxRayDegrees: 120
   m_SphereCastRadius: 0.4
-  m_RayLength: 20
+  m_RayLength: 8
   m_RayLayerMask:
     serializedVersion: 2
     m_Bits: 4294967241
