@@ -1,0 +1,29 @@
+{
+    "AntAgent": {
+        "checkpoints": [
+            {
+                "steps": 50037,
+                "file_path": "results\\camtryout\\AntAgent\\AntAgent-50037.onnx",
+                "reward": 11.229998588562012,
+                "creation_time": 1715205508.2375395,
+                "auxillary_file_paths": [
+                    "results\\camtryout\\AntAgent\\AntAgent-50037.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 50037,
+            "file_path": "results\\camtryout\\AntAgent.onnx",
+            "reward": 11.229998588562012,
+            "creation_time": 1715205508.2375395,
+            "auxillary_file_paths": [
+                "results\\camtryout\\AntAgent\\AntAgent-50037.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}
