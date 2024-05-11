@@ -6,8 +6,8 @@ using System.Collections;
 
 public class AnimalAgent : Agent
 {
-    // Start is called before the first frame update
     Rigidbody rBody;
+    private ScoreManagement scoreManager;
     private Vector3 startPosition;
     private Grabber grabber;
     private Animator animator;
@@ -18,20 +18,31 @@ public class AnimalAgent : Agent
     private GameObject spawnedPeanutObject;
     public GameObject strawberryObject;
     private GameObject spawnedStrawberryObject;
+    public GameObject boxItself;
+    private Vector3 boxLocation;
     private bool notCrushedYet = true;
     private bool isCheating = false;
     private float elapsedTime = 0f;
     void Start () {
+        scoreManager = FindObjectOfType<ScoreManagement>();
         rBody = GetComponent<Rigidbody>();
         startPosition = transform.localPosition;
         grabber = GetComponent<Grabber>();
         animalController = GetComponent<AnimalController>();
         animator = GetComponent<Animator>();
+        if (boxItself != null) {
+            boxLocation = boxItself.transform.position;
+        }
+        else {
+            Debug.Log("No box attached to agent script!!!");
+        }
     }
 
     public override void OnEpisodeBegin()
     {
         {
+            // zaken afhandelen met scoreManager (vorige episode)
+            scoreManager.EndScore();
             // voorkomen dat een destroyed object nog vastgegrepen is
             grabber.SetdropEnabled(false);
             grabber.SetgrabEnabled(true);
@@ -46,19 +57,19 @@ public class AnimalAgent : Agent
 
             // scoringTarget(s) destroyen en opnieuw spawnen
             if (spawnedScoringObject != null) Destroy(spawnedScoringObject);
-            Vector3 spawnPos =  new Vector3(Random.value * 0.3f - 0.15f, -0.03f,0.15f);
+            Vector3 spawnPos =  boxLocation + new Vector3(Random.value * 0.3f - 0.15f, -0.03f,0.15f);
             spawnedScoringObject = Instantiate(scoringObject, spawnPos,  Quaternion.identity);
             spawnedScoringObject.transform.parent = null;
 
             // oude aardbei destroyen en spawn een nieuwe aardbei
             if (spawnedStrawberryObject != null) Destroy(spawnedStrawberryObject);
-            spawnPos = new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(0.2f, 0.6f), Random.Range(-0.1f, 0.04f));
+            spawnPos = boxLocation + new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(0.2f, 0.6f), Random.Range(-0.1f, 0.04f));
             spawnedStrawberryObject = Instantiate(strawberryObject, spawnPos, Quaternion.identity);
             spawnedStrawberryObject.transform.parent = null;
 
             // oude pinda destroyen en spawn een nieuwe pinda
             if (spawnedPeanutObject != null) Destroy(spawnedPeanutObject);
-            spawnPos = new Vector3(Random.Range(-0.22f, 0.22f), Random.Range(0.2f, 0.6f), Random.Range(-0.1f, 0.04f));
+            spawnPos = boxLocation + new Vector3(Random.Range(-0.22f, 0.22f), Random.Range(0.2f, 0.6f), Random.Range(-0.1f, 0.04f));
             spawnedPeanutObject = Instantiate(peanutObject, spawnPos, Quaternion.identity);
             spawnedPeanutObject.transform.parent = null;
         }

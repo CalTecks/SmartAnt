@@ -9,6 +9,7 @@ TagManager:
   - PickupItem
   - AntAgent
   - Box
+  - ScoreManager
   layers:
   - Default
   - TransparentFX
