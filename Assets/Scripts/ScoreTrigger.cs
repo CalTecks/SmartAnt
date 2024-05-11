@@ -6,8 +6,10 @@ public class ScoreTrigger : MonoBehaviour
     private bool isCrushed = false;
     public Material hitMaterial;
     private Renderer objectRenderer;
+    private ScoreManagement scoreManager;
 
     void Start() {
+        scoreManager = FindObjectOfType<ScoreManagement>();
         animalAgent = GameObject.FindWithTag("AnimalAgent").GetComponent<AnimalAgent>();
         objectRenderer = GetComponent<Renderer>();
     }
@@ -21,6 +23,7 @@ public class ScoreTrigger : MonoBehaviour
             {
                 Debug.Log("target crushed used by: " + gameObject.name);
                 animalAgent.TargetCrushed();
+                scoreManager.AddPoint(); // punt toevoegen aan scoreManager
                 // dit target is geraakt, dus isCrushed = true
                 isCrushed = true;
                 objectRenderer.material = hitMaterial;
