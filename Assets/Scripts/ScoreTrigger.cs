@@ -7,6 +7,7 @@ public class ScoreTrigger : MonoBehaviour
     public Material hitMaterial;
     private Renderer objectRenderer;
     private ScoreManagement scoreManager;
+    public AudioClip collisionSound;
 
     void Start() {
         scoreManager = FindObjectOfType<ScoreManagement>();
@@ -14,13 +15,14 @@ public class ScoreTrigger : MonoBehaviour
         objectRenderer = GetComponent<Renderer>();
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         // als het object nog niet is geraakt...
         if(!isCrushed) {
             // Controleren of het object botst met een ander object met de tag "Player"
             if (collision.collider.gameObject.CompareTag("PickupItem"))
             {
+                AudioSource.PlayClipAtPoint(collisionSound, transform.position);
                 Debug.Log("target crushed used by: " + gameObject.name);
                 animalAgent.TargetCrushed();
                 scoreManager.AddPoint(); // punt toevoegen aan scoreManager
