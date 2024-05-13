@@ -20,6 +20,8 @@ public class AnimalAgent : Agent
     private GameObject spawnedStrawberryObject;
     public GameObject boxItself;
     private Vector3 boxLocation;
+    public GameObject bowlItself;
+    private Vector3 bowlLocation;
     private bool notCrushedYet = true;
     private bool isCheating = false;
     private float elapsedTime = 0f;
@@ -36,6 +38,7 @@ public class AnimalAgent : Agent
         else {
             Debug.Log("No box attached to agent script!!!");
         }
+        bowlLocation = bowlItself.transform.position;
     }
 
     public override void OnEpisodeBegin()
@@ -63,13 +66,13 @@ public class AnimalAgent : Agent
 
             // oude aardbei destroyen en spawn een nieuwe aardbei
             if (spawnedStrawberryObject != null) Destroy(spawnedStrawberryObject);
-            spawnPos = boxLocation + new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(0.2f, 0.6f), Random.Range(-0.1f, 0.04f));
+            spawnPos = bowlLocation + new Vector3(0, 0.3f, 0);
             spawnedStrawberryObject = Instantiate(strawberryObject, spawnPos, Quaternion.identity);
             spawnedStrawberryObject.transform.parent = null;
 
             // oude pinda destroyen en spawn een nieuwe pinda
             if (spawnedPeanutObject != null) Destroy(spawnedPeanutObject);
-            spawnPos = boxLocation + new Vector3(Random.Range(-0.22f, 0.22f), Random.Range(0.2f, 0.6f), Random.Range(-0.1f, 0.04f));
+            spawnPos = bowlLocation + new Vector3(0, 0.3f, 0);
             spawnedPeanutObject = Instantiate(peanutObject, spawnPos, Quaternion.identity);
             spawnedPeanutObject.transform.parent = null;
         }
@@ -133,52 +136,52 @@ public class AnimalAgent : Agent
     if (Input.GetKey(KeyCode.RightArrow)) discreteActionsOut[1] = 2;
     if (Input.GetKey(KeyCode.Space)) discreteActionsOut[2] = 1;
 }
-        public void Cheated() {
-            // als het scoringTarget is aangeraakt...
-            isCheating = true;
-            AddReward(-10.0f);
-            Debug.Log("cheated!");
-            if(notCrushedYet) {
-                EndEpisode();
-            }
+    public void Cheated() {
+        // als het scoringTarget is aangeraakt...
+        isCheating = true;
+        AddReward(-10.0f);
+        Debug.Log("cheated!");
+        if(notCrushedYet) {
+            EndEpisode();
         }
+    }
 
-        public void TargetCrushed() {
-            // eens één target is aangeraakt...
-            if (notCrushedYet) {
-            StartCoroutine(DelayEpisode(1));
-            notCrushedYet = false;
-            // geen nieuwe objecten meer oprapen, mag pas in nieuwe episode
-            grabber.SetgrabEnabled(false);
-            }
-        if (!isCheating)
-        {
-            AddReward(5f);
-            Debug.Log("REWARD target crushed added: 5f");
+    public void TargetCrushed() {
+        // eens één target is aangeraakt...
+        if (notCrushedYet) {
+        StartCoroutine(DelayEpisode(1));
+        notCrushedYet = false;
+        // geen nieuwe objecten meer oprapen, mag pas in nieuwe episode
+        grabber.SetgrabEnabled(false);
         }
-        }
+    if (!isCheating)
+    {
+        AddReward(5f);
+        Debug.Log("REWARD target crushed added: 5f");
+    }
+    }
 
-        public void Grabbed() {
+    public void Grabbed() {
 
-        if (!isCheating)
-        {
-            AddReward(1.5f);
-            Debug.Log("reward grabbed added: 0.5f");
-        }
-        }
+    if (!isCheating)
+    {
+        AddReward(1.5f);
+        Debug.Log("reward grabbed added: 0.5f");
+    }
+    }
 
-        public void Dropped() {
+    public void Dropped() {
 
-        if (!isCheating)
-        {
-            // AddReward(0.2f);
-            // Debug.Log("reward dropped added: 0.2f");
-        }
-        }
+    if (!isCheating)
+    {
+        // AddReward(0.2f);
+        // Debug.Log("reward dropped added: 0.2f");
+    }
+    }
 
-        IEnumerator DelayEpisode(int sec) {
-        Debug.Log("Einde episode in " + sec + " seconden...");
-            yield return new WaitForSeconds(sec);
-        EndEpisode();
-        }
+    IEnumerator DelayEpisode(int sec) {
+    Debug.Log("Einde episode in " + sec + " seconden...");
+        yield return new WaitForSeconds(sec);
+    EndEpisode();
+    }
 }
