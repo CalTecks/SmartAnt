@@ -30,11 +30,11 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5760482475692936935}
-  - {fileID: 3089448381493739677}
-  - {fileID: 899473134219361358}
-  - {fileID: 7210657695482291539}
-  - {fileID: 4848439604011907798}
   - {fileID: 3171521512117918897}
+  - {fileID: 4848439604011907798}
+  - {fileID: 7210657695482291539}
+  - {fileID: 899473134219361358}
+  - {fileID: 3089448381493739677}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &416641627692751028
@@ -45,15 +45,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1984257205152130631}
     m_Modifications:
+    - target: {fileID: 13436630588623266, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
+        type: 3}
+      propertyPath: collisionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8bf8b8f24d87b1f4eaba2c8461d1789d, type: 3}
     - target: {fileID: 7050758647704255975, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.75
+      value: -0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7050758647704255975, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.75
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7050758647704255975, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
@@ -98,7 +103,7 @@ PrefabInstance:
     - target: {fileID: 8471386308600629632, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
       propertyPath: m_Name
-      value: Cylinder (4)
+      value: Cylinder4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -119,15 +124,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1984257205152130631}
     m_Modifications:
+    - target: {fileID: 13436630588623266, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
+        type: 3}
+      propertyPath: collisionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 0e49797434cdc3b4699ff763d61723e1, type: 3}
     - target: {fileID: 7050758647704255975, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7050758647704255975, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.51
+      value: 0.302
       objectReference: {fileID: 0}
     - target: {fileID: 7050758647704255975, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
@@ -172,7 +182,7 @@ PrefabInstance:
     - target: {fileID: 8471386308600629632, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
       propertyPath: m_Name
-      value: Cylinder (2)
+      value: Cylinder3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -193,6 +203,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1984257205152130631}
     m_Modifications:
+    - target: {fileID: 13436630588623266, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
+        type: 3}
+      propertyPath: collisionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 6ad958292f8668145865a2bba0dde8a4, type: 3}
     - target: {fileID: 7050758647704255975, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -201,7 +216,7 @@ PrefabInstance:
     - target: {fileID: 7050758647704255975, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.51
+      value: 0.302
       objectReference: {fileID: 0}
     - target: {fileID: 7050758647704255975, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
@@ -246,7 +261,7 @@ PrefabInstance:
     - target: {fileID: 8471386308600629632, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
       propertyPath: m_Name
-      value: Cylinder
+      value: Cylinder1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -267,6 +282,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1984257205152130631}
     m_Modifications:
+    - target: {fileID: 13436630588623266, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
+        type: 3}
+      propertyPath: collisionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 6d7ddc28e86ff8c44a78d7654dd2313a, type: 3}
     - target: {fileID: 7050758647704255975, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -275,7 +295,7 @@ PrefabInstance:
     - target: {fileID: 7050758647704255975, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7050758647704255975, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
@@ -320,7 +340,7 @@ PrefabInstance:
     - target: {fileID: 8471386308600629632, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
       propertyPath: m_Name
-      value: Cylinder (5)
+      value: Cylinder6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -341,15 +361,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1984257205152130631}
     m_Modifications:
+    - target: {fileID: 13436630588623266, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
+        type: 3}
+      propertyPath: collisionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 01cb2f53a6e744e42aa5c73e1d71cbcf, type: 3}
     - target: {fileID: 7050758647704255975, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.5
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7050758647704255975, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.51
+      value: 0.302
       objectReference: {fileID: 0}
     - target: {fileID: 7050758647704255975, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
@@ -394,7 +419,7 @@ PrefabInstance:
     - target: {fileID: 8471386308600629632, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
       propertyPath: m_Name
-      value: Cylinder (1)
+      value: Cylinder2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -415,15 +440,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1984257205152130631}
     m_Modifications:
+    - target: {fileID: 13436630588623266, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
+        type: 3}
+      propertyPath: collisionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 6cdc734f527896c44b104ab63ab3ee18, type: 3}
     - target: {fileID: 7050758647704255975, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.75
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7050758647704255975, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.75
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7050758647704255975, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
@@ -468,7 +498,7 @@ PrefabInstance:
     - target: {fileID: 8471386308600629632, guid: ddfd3e1e0e7f47340a8b0efd068d99d7,
         type: 3}
       propertyPath: m_Name
-      value: Cylinder (3)
+      value: Cylinder5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

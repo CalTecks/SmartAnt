@@ -1,0 +1,29 @@
+{
+    "AntAgent": {
+        "checkpoints": [
+            {
+                "steps": 144241,
+                "file_path": "results\\bewegen001\\AntAgent\\AntAgent-144241.onnx",
+                "reward": 7.601524699413858,
+                "creation_time": 1715122499.466645,
+                "auxillary_file_paths": [
+                    "results\\bewegen001\\AntAgent\\AntAgent-144241.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 144241,
+            "file_path": "results\\bewegen001\\AntAgent.onnx",
+            "reward": 7.601524699413858,
+            "creation_time": 1715122499.466645,
+            "auxillary_file_paths": [
+                "results\\bewegen001\\AntAgent\\AntAgent-144241.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

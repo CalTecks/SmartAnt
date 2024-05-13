@@ -1,0 +1,47 @@
+{
+    "AntAgent": {
+        "checkpoints": [
+            {
+                "steps": 499948,
+                "file_path": "results\\lookattarget3\\AntAgent\\AntAgent-499948.onnx",
+                "reward": 14.592999651318504,
+                "creation_time": 1715172719.2695215,
+                "auxillary_file_paths": [
+                    "results\\lookattarget3\\AntAgent\\AntAgent-499948.pt"
+                ]
+            },
+            {
+                "steps": 999998,
+                "file_path": "results\\lookattarget3\\AntAgent\\AntAgent-999998.onnx",
+                "reward": 13.308666676282883,
+                "creation_time": 1715180657.0799987,
+                "auxillary_file_paths": [
+                    "results\\lookattarget3\\AntAgent\\AntAgent-999998.pt"
+                ]
+            },
+            {
+                "steps": 1143779,
+                "file_path": "results\\lookattarget3\\AntAgent\\AntAgent-1143779.onnx",
+                "reward": -2.8952569867725724,
+                "creation_time": 1715186325.4261165,
+                "auxillary_file_paths": [
+                    "results\\lookattarget3\\AntAgent\\AntAgent-1143779.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1143779,
+            "file_path": "results\\lookattarget3\\AntAgent.onnx",
+            "reward": -2.8952569867725724,
+            "creation_time": 1715186325.4261165,
+            "auxillary_file_paths": [
+                "results\\lookattarget3\\AntAgent\\AntAgent-1143779.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}
