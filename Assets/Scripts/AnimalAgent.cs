@@ -25,7 +25,7 @@ public class AnimalAgent : Agent
     private bool notCrushedYet = true;
     private bool isCheating = false;
     private float elapsedTime = 0f;
-    void Start () {
+    void Awake() {
         scoreManager = FindObjectOfType<ScoreManagement>();
         rBody = GetComponent<Rigidbody>();
         startPosition = transform.localPosition;
@@ -45,7 +45,7 @@ public class AnimalAgent : Agent
     {
         {
             // zaken afhandelen met scoreManager (vorige episode)
-            scoreManager.EndScore();
+            if (scoreManager != null) scoreManager.EndScore();
             // voorkomen dat een destroyed object nog vastgegrepen is
             grabber.SetdropEnabled(false);
             grabber.SetgrabEnabled(true);
