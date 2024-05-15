@@ -17,6 +17,10 @@ public class GameStateManager : MonoBehaviour
     private Animator animator;
     public int timerValue; // UI variabele
 
+    public void SetStartGame(bool value) {
+        StartGame = value;
+    }
+
 
     void Start()
     {

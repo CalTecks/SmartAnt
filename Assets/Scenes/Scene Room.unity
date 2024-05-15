@@ -216,17 +216,17 @@ PrefabInstance:
     - target: {fileID: 3734428995995206231, guid: f0b61dc39d0001d4487d98d84b5a5cd9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.054
+      value: 0.457
       objectReference: {fileID: 0}
     - target: {fileID: 3734428995995206231, guid: f0b61dc39d0001d4487d98d84b5a5cd9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.996
+      value: 1.019
       objectReference: {fileID: 0}
     - target: {fileID: 3734428995995206231, guid: f0b61dc39d0001d4487d98d84b5a5cd9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.389
+      value: 1.073
       objectReference: {fileID: 0}
     - target: {fileID: 3734428995995206231, guid: f0b61dc39d0001d4487d98d84b5a5cd9,
         type: 3}
@@ -2598,6 +2598,7 @@ MonoBehaviour:
   boxSocket: {fileID: 1021038673}
   Agent: {fileID: 52595472}
   gameTimeLength: 60
+  timerValue: 0
 --- !u!4 &285035556
 Transform:
   m_ObjectHideFlags: 0
@@ -15111,8 +15112,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 285035555}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
+        m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
+        m_MethodName: SetStartGame
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15120,7 +15121,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1617856308
 MonoBehaviour:
