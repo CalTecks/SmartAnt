@@ -28,7 +28,7 @@ public class AnimalAgent : Agent
     void Awake() {
         scoreManager = FindObjectOfType<ScoreManagement>();
         rBody = GetComponent<Rigidbody>();
-        startPosition = transform.localPosition;
+
         grabber = GetComponent<Grabber>();
         animalController = GetComponent<AnimalController>();
         animator = GetComponent<Animator>();
@@ -54,7 +54,7 @@ public class AnimalAgent : Agent
             isCheating = false; // cheaten resetten
             rBody.angularVelocity = Vector3.zero;
             rBody.velocity = Vector3.zero;
-            transform.localPosition = startPosition;
+            transform.localPosition = boxLocation;
             animator.SetBool("isHoldingObject", false); // animator reset
             animator.SetFloat("runMultiplier", 1);
 
