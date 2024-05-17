@@ -1,0 +1,50 @@
+
+
+
+
+Maak op basis van het AI-powered VR project een tutorial aan zodat het project (van scratch) reproduceerbaar wordt.
+INHOUD
+
+Hou het kort en bondig, maar probeer volgende zaken te vermelden:
+
+Inleiding
+
+    Bondige titel van het project, beschrijf in minimum aantal woorden het functionele aspect van jullie project
+    Inleiding (is iets helemaal anders dan een samenvatting!): 1 paragraaf
+    Korte samenvatting met daarin wat de lezer van de tutorial kan verwachten tegen het einde te hebben bijgeleerd
+
+Methoden
+
+    Installatie: enkel vermelden van de versies meegeven, geen uitleg over hoe je moet installeren, tenzij het over zaken gaat die niet in de cursus staan
+    Verloop van de simulatie of het spel
+    Duidelijk overzicht van de observaties, mogelijke acties en beloningen
+    Beschrijving van de objecten
+    Beschrijvingen van de gedragingen van de objecten
+    Alle informatie van de one-pager
+    Indien van toepassing: waar jullie afwijken van de one-pager en waarom
+
+Resultaten
+
+    Resultaten van de training met Tensorboard afbeeldingen
+    Beschrijving van de Tensorboard grafieken
+    Opvallende waarnemingen tijdens het trainen 
+
+Conclusie (1 á 3 paragrafen)
+
+    Eén zin die nog eens samenvat wat jullie hebben gedaan
+    Kort overzicht resultaten (2 á 3 zinnen zonder cijfers te vernoemen)
+    Een 'persoonlijke' visie op de resultaten, wat betekenen de resultaten nu eigenlijk
+    Verbeteringen naar de toekomst toe
+
+
+VORM
+
+
+    Beschrijf de tutorial binnen 1 Markdown bestand
+    Het Markdown bestand moet de desbetreffende set aan stijlregels volgen (volgens VSCode Markdownlint)
+    Grafieken: zorg dat alle data erop staan, geen smoothing, legende, astitels, ..., maar niet méér dan dat
+    Taalgebruik: helder, bondig en professioneel Nederlands
+
+BRONVERMELDING
+
+Je mag eventueel gebruik maken van de instructievideo's van deze cursus of naar de Obelix tutorial. Voor alle ander materiaal waar je gebruik van maakt en dat bestaat uit meer dan één regel aan code, verwijs je naar de oorspronkelijke bron op een gepaste wijze (APA-stijl). Een ontbrekende of incorrecte verwijzing wordt als plagiaat beschouwd.

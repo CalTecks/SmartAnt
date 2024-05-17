@@ -16,6 +16,8 @@ public class GameStateManager : MonoBehaviour
     private bool gameStopped = false;
     private Animator animator;
     public int timerValue; // UI variabele
+    public GameObject startGameBackground;
+    public GameObject throwBackGround;
 
     public void SetStartGame(bool value) {
         StartGame = value;
@@ -66,6 +68,8 @@ public class GameStateManager : MonoBehaviour
             if (timerValue <= 0 )
             {
                 StartGame = false;
+                startGameBackground.SetActive(true); // menu item terug weergeven
+                throwBackGround.SetActive(false);
             }
         }
     }

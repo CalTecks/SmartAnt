@@ -53,7 +53,7 @@ public class AnimalAgent : Agent
             isCheating = false; // cheaten resetten
             rBody.angularVelocity = Vector3.zero;
             rBody.velocity = Vector3.zero;
-            transform.localPosition = boxLocation + new Vector3(Random.value * 0.3f - 0.15f, +0.3f, -0.2f); // half random respawn mier
+            transform.localPosition = boxLocation + new Vector3(Random.value * 0.3f - 0.15f, +0.15f, -0.2f); // half random respawn mier
             animator.SetBool("isHoldingObject", false); // animator reset
             animator.SetFloat("runMultiplier", 1);
 
