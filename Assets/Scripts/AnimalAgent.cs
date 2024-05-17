@@ -24,6 +24,7 @@ public class AnimalAgent : Agent
     private bool notCrushedYet = true;
     private bool isCheating = false;
     private float elapsedTime = 0f;
+
     void Awake() {
         scoreManager = FindObjectOfType<ScoreManagement>();
         rBody = GetComponent<Rigidbody>();
@@ -62,17 +63,17 @@ public class AnimalAgent : Agent
             spawnedScoringObject = Instantiate(scoringObject, spawnPos,  Quaternion.identity);
             spawnedScoringObject.transform.parent = null;
 
-            // oude aardbei destroyen en spawn een nieuwe aardbei
-            if (spawnedStrawberryObject != null) Destroy(spawnedStrawberryObject);
-            spawnPos = bowlLocation + new Vector3(0, 0.3f, 0);
-            spawnedStrawberryObject = Instantiate(strawberryObject, spawnPos, Quaternion.identity);
-            spawnedStrawberryObject.transform.parent = null;
+            //// oude aardbei destroyen en spawn een nieuwe aardbei
+            //if (spawnedStrawberryObject != null) Destroy(spawnedStrawberryObject);
+            //spawnPos = bowlLocation + new Vector3(0, 0.3f, 0);
+            //spawnedStrawberryObject = Instantiate(strawberryObject, spawnPos, Quaternion.identity);
+            //spawnedStrawberryObject.transform.parent = null;
 
-            // oude pinda destroyen en spawn een nieuwe pinda
-            if (spawnedPeanutObject != null) Destroy(spawnedPeanutObject);
-            spawnPos = bowlLocation + new Vector3(0, 0.3f, 0);
-            spawnedPeanutObject = Instantiate(peanutObject, spawnPos, Quaternion.identity);
-            spawnedPeanutObject.transform.parent = null;
+            //// oude pinda destroyen en spawn een nieuwe pinda
+            //if (spawnedPeanutObject != null) Destroy(spawnedPeanutObject);
+            //spawnPos = bowlLocation + new Vector3(0, 0.3f, 0);
+            //spawnedPeanutObject = Instantiate(peanutObject, spawnPos, Quaternion.identity);
+            //spawnedPeanutObject.transform.parent = null;
         }
     }
 
