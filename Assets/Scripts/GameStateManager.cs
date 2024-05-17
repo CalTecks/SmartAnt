@@ -34,7 +34,7 @@ public class GameStateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(StartGame && !gameStarted)
+        if (StartGame && !gameStarted)
         {
             timerEnabled = true;
             timeSoFar = Time.time;
@@ -60,6 +60,18 @@ public class GameStateManager : MonoBehaviour
             animator.SetBool("isHoldingObject", false);
             animator.SetBool("isTurningLeft", false);
             animator.SetBool("isTurningRight", false);
+
+            // alle het eten/cylinders despawnen
+            GameObject[] toDelete1 = GameObject.FindGameObjectsWithTag("ScoringItem");
+            GameObject[] toDelete2 = GameObject.FindGameObjectsWithTag("PickupItem");
+            foreach (GameObject obj in toDelete1)
+            {
+                Destroy(obj);
+            }
+            foreach (GameObject obj in toDelete2)
+            {
+                Destroy(obj);
+            }
         }
         if (timerEnabled)
         {
