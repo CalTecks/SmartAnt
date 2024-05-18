@@ -14,6 +14,8 @@ public class GameStateManager : MonoBehaviour
     private ScoreManagement scoreManager;
     private bool gameStarted = false;
     private bool gameStopped = false;
+    private bool playedMusic = false;
+    private AudioSource audioSource;
     private Animator animator;
     public int timerValue; // UI variabele
     public GameObject startGameBackground;
@@ -28,6 +30,7 @@ public class GameStateManager : MonoBehaviour
     {
         scoreManager = FindObjectOfType<ScoreManagement>();
         animator = Agent.GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -77,9 +80,15 @@ public class GameStateManager : MonoBehaviour
         {
             timerValue = Mathf.CeilToInt(gameTimeLength - (Time.time - timeSoFar));
             Debug.Log(timerValue);
+            if (timerValue <= 12 && !playedMusic)
+            {
+                audioSource.Play();
+                playedMusic = true; // eindmuziekje afspelen, eenmalig
+            }
             if (timerValue <= 0 )
             {
                 StartGame = false;
+                playedMusic = false;
                 startGameBackground.SetActive(true); // menu item terug weergeven
                 throwBackGround.SetActive(false);
             }
