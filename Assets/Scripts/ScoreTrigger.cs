@@ -5,6 +5,7 @@ public class ScoreTrigger : MonoBehaviour
     public AnimalAgent animalAgent;
     private bool isCrushed = false;
     public Material hitMaterial;
+    public Material cheatMaterial;
     private Renderer objectRenderer;
     private ScoreManagement scoreManager;
     public AudioClip collisionSound;
@@ -22,13 +23,21 @@ public class ScoreTrigger : MonoBehaviour
             // Controleren of het object botst met een ander object met de tag "Player"
             if (collision.collider.gameObject.CompareTag("PickupItem"))
             {
-                AudioSource.PlayClipAtPoint(collisionSound, transform.position);
-                Debug.Log("target crushed used by: " + gameObject.name);
-                animalAgent.TargetCrushed();
+                TouchedByAnt touchedByAntScript = collision.collider.gameObject.GetComponent<TouchedByAnt>();
+                // onderstaande if is om te checken of de mier het wel heeft gegooid, indien niet, geen punten!
+                if (touchedByAntScript != null && touchedByAntScript.touchedByAnt)
+                {
                 scoreManager.AddPoint(); // punt toevoegen aan scoreManager
-                // dit target is geraakt, dus isCrushed = true
-                isCrushed = true;
                 objectRenderer.material = hitMaterial;
+                }
+                else {
+                    objectRenderer.material = cheatMaterial; // als de mier het niet heeft aangeraakt
+                }
+                // dit target is geraakt, dus isCrushed = true
+                animalAgent.TargetCrushed();
+                isCrushed = true;
+                Debug.Log("target crushed used by: " + gameObject.name);
+                AudioSource.PlayClipAtPoint(collisionSound, transform.position);
             }
         }
     }

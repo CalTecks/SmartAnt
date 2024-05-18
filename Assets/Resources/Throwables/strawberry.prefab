@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 4030062608407728631}
   - component: {fileID: 3698618342561865179}
   - component: {fileID: 382836203370050364}
+  - component: {fileID: 6355913984958663924}
   m_Layer: 0
   m_Name: strawberry
   m_TagString: PickupItem
@@ -318,3 +319,15 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &6355913984958663924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2293635795431954524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b85cfe39ce01604d82c210d2f725782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
