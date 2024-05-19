@@ -215,8 +215,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3650849, y: -0.28477317, z: 0.11835825, w: 0.8784126}
-  m_LocalPosition: {x: 0.6588497, y: 0.6730578, z: -0.56343436}
+  m_LocalRotation: {x: 0.30482796, y: -0.5360973, z: 0.21587859, w: 0.75701797}
+  m_LocalPosition: {x: 0.9297762, y: 0.7508433, z: -0.18271476}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -558,17 +558,12 @@ PrefabInstance:
       propertyPath: boxItself
       value: 
       objectReference: {fileID: 69173764}
-    - target: {fileID: 9131672496364358138, guid: 77883d879902b97428b6193ca1f264cd,
+    - target: {fileID: 7361863928971772953, guid: 77883d879902b97428b6193ca1f264cd,
         type: 3}
-      propertyPath: m_Model
+      propertyPath: scoringObject
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 77da7a0c278db874ea9e48a8c0f7a308,
+      objectReference: {fileID: 7142896245388125386, guid: d9da765b0b2a84240b577961cb53563a,
         type: 3}
-    - target: {fileID: 9131672496364358138, guid: 77883d879902b97428b6193ca1f264cd,
-        type: 3}
-      propertyPath: m_BehaviorType
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

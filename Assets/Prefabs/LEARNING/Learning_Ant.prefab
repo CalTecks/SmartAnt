@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 4417599623519039409}
   - component: {fileID: 6136483066599642205}
   - component: {fileID: 7269948456027114832}
-  - component: {fileID: 4937813264372935217}
   - component: {fileID: 5932748917625590626}
-  - component: {fileID: 5856696932837161583}
   - component: {fileID: 9131672496364358138}
   - component: {fileID: 424948973655005107}
   - component: {fileID: 2446762532548421394}
   - component: {fileID: 7361863928971772953}
   - component: {fileID: 317303168416971401}
+  - component: {fileID: 6784328651630547512}
+  - component: {fileID: 1325071851660462377}
   m_Layer: 0
   m_Name: Learning_Ant
   m_TagString: AnimalAgent
@@ -85,22 +85,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4937813264372935217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 219869126911665555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ae4260b37acd5b4b8068f1086bc0ad2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startSpeedForward: 7
-  startSpeedBackward: 3.5
-  startSpeedRotate: 125
-  loadMultiplier: 0.6
 --- !u!54 &5932748917625590626
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,24 +112,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &5856696932837161583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 219869126911665555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29e1acfade0c08e469cd464cf764bf6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grabEnabled: 1
-  dropEnabled: 0
-  distanceFromGrabber: 1.2
-  distanceAboveGrabber: 1.6
-  throwingPowerForward: 30
-  throwingPowerUpward: 20
 --- !u!114 &9131672496364358138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,9 +134,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 73bcda31988eed64faa5d63fb8eec9b3, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 77da7a0c278db874ea9e48a8c0f7a308, type: 3}
   m_InferenceDevice: 3
-  m_BehaviorType: 0
+  m_BehaviorType: 1
   m_BehaviorName: AntAgent
   TeamId: 0
   m_UseChildSensors: 1
@@ -271,6 +237,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
+--- !u!114 &6784328651630547512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219869126911665555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfd1894c50594cf47ba9bcb56ec58fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabEnabled: 1
+  dropEnabled: 0
+  distanceFromGrabber: 1.2
+  distanceAboveGrabber: 1.6
+  throwingPowerForward: 30
+  throwingPowerUpward: 20
+--- !u!114 &1325071851660462377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219869126911665555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c20db29b07caa443851c7637b470003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSpeedForward: 7
+  startSpeedBackward: 3.5
+  startSpeedRotate: 125
+  loadMultiplier: 0.6
 --- !u!1 &874386892380449725
 GameObject:
   m_ObjectHideFlags: 0

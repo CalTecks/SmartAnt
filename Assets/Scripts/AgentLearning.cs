@@ -7,9 +7,9 @@ using System.Collections;
 public class AgentLearning : Agent
 {
     Rigidbody rBody;
-    private Grabber grabber;
+    private GrabberLearning grabber;
     private Animator animator;
-    private AnimalController animalController;
+    private AnimalControllerLearning animalControllerLearning;
     public GameObject scoringObject;
     private GameObject spawnedScoringObject;
     public GameObject peanutObject;
@@ -24,8 +24,8 @@ public class AgentLearning : Agent
 
     void Awake() {
         rBody = GetComponent<Rigidbody>();
-        grabber = GetComponent<Grabber>();
-        animalController = GetComponent<AnimalController>();
+        grabber = GetComponent<GrabberLearning>();
+        animalControllerLearning = GetComponent<AnimalControllerLearning>();
         animator = GetComponent<Animator>();
         if (boxItself != null) {
             boxLocation = boxItself.transform.position;
@@ -95,11 +95,11 @@ public class AgentLearning : Agent
     {
         // Actions, size = 2
         Vector3 controlSignal = Vector3.zero;
-        animalController.SetctrlUpArrow(actionBuffers.DiscreteActions[0] == 1); // voorwaarts
-        animalController.SetctrlDownArrow(actionBuffers.DiscreteActions[0] == 2); // achterwaarts
-        animalController.SetctrlLeftArrow(actionBuffers.DiscreteActions[1] == 1); // links draaien
-        animalController.SetctrlRightArrow(actionBuffers.DiscreteActions[1] == 2); // rechts draien
-        animalController.SetctrlSpace(actionBuffers.DiscreteActions[2] == 1); // werpen
+        animalControllerLearning.SetctrlUpArrow(actionBuffers.DiscreteActions[0] == 1); // voorwaarts
+        animalControllerLearning.SetctrlDownArrow(actionBuffers.DiscreteActions[0] == 2); // achterwaarts
+        animalControllerLearning.SetctrlLeftArrow(actionBuffers.DiscreteActions[1] == 1); // links draaien
+        animalControllerLearning.SetctrlRightArrow(actionBuffers.DiscreteActions[1] == 2); // rechts draien
+        animalControllerLearning.SetctrlSpace(actionBuffers.DiscreteActions[2] == 1); // werpen
         if (transform.localPosition.y < -1) EndEpisode();
         // // als agent beweegt kleine beloning
         // if (actionBuffers.DiscreteActions[0] == 1 || actionBuffers.DiscreteActions[0] == 2 ||
