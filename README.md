@@ -135,6 +135,7 @@ Na het experimenteren met verschillende aanpassingen is de conclusie dat volgend
 - Afstraffing in tijd
 - Reduceren van het max aantal steps tot ongeveer 3500 stappen
 
+
 ![](./tutorial_files/beste.jpg)
 
 Dit is het beste resultaat, na meer dan een miljoen stappen.
