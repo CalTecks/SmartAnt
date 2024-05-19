@@ -135,7 +135,7 @@ Na het experimenteren met verschillende aanpassingen is de conclusie dat volgend
 - Afstraffing in tijd
 - Reduceren van het max aantal steps tot ongeveer 3500 stappen
 
-![](./tutorial_files/beste.jpg)
+![](./tutorial_files/beste.JPG)
 
 Dit is het beste resultaat, na meer dan een miljoen stappen.
 Ondanks dat er een stijging in het resultaat is waar te nemen tot stap 400 000, is er vanaf daar niet erg veel verbetering meer vast te stellen. Het gemiddelde stijgt wel, maar er zijn nog vaak sessies waar het helemaal mis gaat. De deviatie blijft erg groot, wat er op wijst dat het nog vaak mis kan gaan.
